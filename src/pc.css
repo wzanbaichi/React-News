@@ -1,0 +1,71 @@
+.logo {
+    align-items: center;
+    display: flex;
+}
+
+.logo img{
+    width: 48px;
+}
+.logo span {
+    font-size: 24px;
+    padding-left: 15px;
+}
+.pc_footer {
+    text-align: center;
+    line-height: 50px;
+}
+.register {
+    float: right !important;
+}
+.container {
+    text-align: center;
+    margin-top: 20px;
+}
+.left_container {
+    float: left;
+}
+.left_container .carousel {
+    float: left;
+    width: 400px;
+    margin-bottom: 20px;
+}
+.carousel img {
+    width: 400px;
+    height: 260px;
+}
+.tabs_news {
+    /*float: left;*/
+    width: 460px;
+    padding-left: 20px;
+    text-align: left;
+}
+.top_new_list_container {
+    padding-bottom: 34px;
+    margin-bottom: 20px;
+}
+
+.top_new_list ul li {
+    color: #666;
+    height: 27px;
+    line-height: 27px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 417px;
+    float: left;
+    text-overflow: ellipsis;
+    padding-right: 30px;
+}
+.image_block {
+    float: left;
+    padding-right: 3px;
+    padding-left: 3px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.image_wrap {
+    margin-bottom: 10px;
+}
+.image_card {
+    margin-bottom: 20px;
+}

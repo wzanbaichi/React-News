@@ -1,0 +1,63 @@
+html {
+    font-size: 50px;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#mobile_header {
+    flex: 1;
+    background-color: rgba(245, 245, 245, 0.44);
+}
+
+#mobile_header header{
+    border-bottom: 1px solid #2db7f5;
+}
+#mobile_header header img {
+    padding-left: 10px;
+    height: 50px;
+}
+#mobile_header header span {
+    font-size: 35px;
+    vertical-align: top;
+    padding-left: 10px;
+    color: #2db7f5;
+}
+#mobile_footer {
+    text-align: center;
+}
+#mobile_header i {
+    font-size: .5rem;
+    float: right;
+    margin-right: .3rem;
+    margin-top: .3rem;
+    color: #2db7f5;
+}
+.mobile_list {
+    margin-bottom: .2rem;
+    padding-bottom: .1rem;
+    border-bottom: 1px dashed rgba(145, 145, 145, 0.44);
+}
+.list_img {
+    float: left;
+}
+.list_img img {
+    width: 2rem;
+    margin-right: .3rem;
+}
+.list_desc_l {
+    padding-top: .5rem;
+    text-align: right;
+}
+.list_info_channel {
+    float: left;
+    background-color: #fdf2f4;
+    color: #e81228;
+    padding: 0 0.09rem;
+    border-radius: 5px;
+    border: 1px solid #e81228;
+}
+.carousel img {
+    width: 100%;
+}
