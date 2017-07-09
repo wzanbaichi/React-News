@@ -23,14 +23,27 @@ class MobileHeader extends React.Component{
             modalVisibal: false,
             action: 'login',
             hasLogined: false,
-            userNickname:'liangchenkang',
+            userNickname:'',
             userId: 0
         };
+    }
+    componentWillMount(){
+        let currentUser = AV.User.current();
+        if (currentUser) {
+            this.setState({
+                hasLogined:true,
+                userNickname:currentUser.attributes.username
+            })
+        }
+        else {
+            //currentUser 为空时，可打开用户注册界面…
+
+        }
     }
     render(){
         let { getFieldDecorator } = this.props.form;
         const userShow = this.state.hasLogined?
-            <Icon type='inbox'/>
+            <Icon type='inbox' onClick={this.logout.bind(this)}/>
             :
             <Icon type='setting' onClick={this.userAction.bind(this)}/>
         return(
@@ -39,8 +52,8 @@ class MobileHeader extends React.Component{
                     <a href="/">
                         <img src={Logo} alt="logo"/>
                         <span>ReactNews</span>
-                        {userShow}
                     </a>
+                    {userShow}
                 </header>
                 <Modal  wrapClassName='virtical-center-modal' visible={this.state.modalVisibal}
                         footer={null}
@@ -156,6 +169,12 @@ class MobileHeader extends React.Component{
             })
         }, function (error) {
         });
+    }
+    logout(){
+        this.setState({
+            hasLogined:false,
+        });
+        AV.User.logOut();
     }
 }
 

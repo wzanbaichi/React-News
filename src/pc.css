@@ -100,6 +100,9 @@ h1.title {
     font-size: 15px;
     padding-top: 20px;
 }
+.comments {
+    padding-top: .5rem;
+}
 .comments_list {
     font-size: 14px;
     border-bottom: 1px dashed rgba(160, 160, 160, 0.44);
@@ -117,7 +120,7 @@ h1.title {
     clear: both;
 }
 .comments_content {
-
+    word-break:break-all;
 }
 .comments_date {
     float: right;
@@ -125,7 +128,7 @@ h1.title {
     font-size: 12px;
 }
 .comments_input {
-    height: 160px !important;
+    height: 3rem !important;
     resize: none;
 }
 
