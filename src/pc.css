@@ -12,6 +12,9 @@
     font-size: 24px;
     padding-left: 15px;
 }
+.usercenter_link{
+    display: inline-block !important;
+}
 .pc_footer {
     text-align: center;
     line-height: 50px;
@@ -21,7 +24,7 @@
 }
 .container {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .left_container {
     float: left;
@@ -36,7 +39,7 @@
     height: 260px;
 }
 .tabs_news {
-    /*float: left;*/
+    float: left;
     width: 460px;
     padding-left: 20px;
     text-align: left;
@@ -130,5 +133,33 @@ h1.title {
 .comments_input {
     height: 3rem !important;
     resize: none;
+}
+.comments_collect {
+    text-align: center;
+}
+.usercenter_content {
+    padding-top: 50px;
+}
+.usercenter_collectList {
+    font-size: 14px;
+    padding: 20px 0 ;
+}
+.usercenter_collectList .usercenter_collect_date {
+    float: right;
+}
+.usercenter_commentsList {
+    font-size: 14px;
+    padding: 20px 0 ;
+}
+.usercenter_commentsList .usercenter_comments_date {
+    float: right;
+}
+.product {
+    padding-left: 20px;
+    height: 670px;
+}
+
+.product_content {
+    padding-bottom: 20px;
 }
 

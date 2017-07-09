@@ -6,11 +6,15 @@ import {
     Form ,
     Input ,
     Button ,
-    Modal ,} from 'antd';
+    Modal ,
+    Menu,
+    Dropdown} from 'antd';
 import AV from 'leancloud-storage';
+import {Link} from 'react-router-dom';
 
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
+
 
 
 
@@ -42,8 +46,23 @@ class MobileHeader extends React.Component{
     }
     render(){
         let { getFieldDecorator } = this.props.form;
+        const menu = (
+            <Menu className='mobile_header_buttons'>
+                <Menu.Item key="1">
+                    <Link to='/usercenter'>
+                        <Button>个人中心</Button>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key="2">
+                    <Button onClick={this.logout.bind(this)}>注销</Button>
+                </Menu.Item>
+                <Menu.Divider />
+            </Menu>
+        );
         const userShow = this.state.hasLogined?
-            <Icon type='inbox' onClick={this.logout.bind(this)}/>
+            <Dropdown overlay={menu} trigger={['click']}>
+                <Button className = 'mobile_header_logined_btn'>{this.state.userNickname}</Button>
+            </Dropdown>
             :
             <Icon type='setting' onClick={this.userAction.bind(this)}/>
         return(
@@ -84,26 +103,26 @@ class MobileHeader extends React.Component{
                         <TabPane tab='注册' key='2'>
                             <Form onSubmit={this.handelSubmit.bind(this)}>
                                 <FormItem label='账户'>
-                                    {getFieldDecorator('userName', {
+                                    {getFieldDecorator('r_userName', {
                                         rules: [{ required: true, message: 'Please input your username!' }],
                                     })(
                                         <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder='请输入您的账号'/>
                                     )}
                                 </FormItem>
                                 <FormItem label='密码'>
-                                    {getFieldDecorator('password', {
+                                    {getFieldDecorator('r_passWord', {
                                         rules: [{ required: true, message: 'Please input your Password!' }],
                                     })(
                                         <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type='password' placeholder='请输入您的密码'/>
                                     )}
                                 </FormItem>
-                                <FormItem label='确认密码'>
-                                    {getFieldDecorator('confirmPassword', {
-                                        rules: [{ required: true, message: 'Please confirm your Password!' }],
+                                <FormItem label='邮箱'>
+                                    {getFieldDecorator('r_email', {
+                                        rules: [{required: true, message: 'Please input your E-mail!'}],
                                     })(
-                                        <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type='password' placeholder='请再次输入您的密码'/>
+                                        <Input prefix={<Icon type="mail" style={{fontSize: 13}}/>}
+                                               placeholder='请输入您的邮箱'/>
                                     )}
-
                                 </FormItem>
                                 <Button htmlType='submit'>注册</Button>
                             </Form>
@@ -161,13 +180,13 @@ class MobileHeader extends React.Component{
         let formDate = this.props.form.getFieldsValue();
         let _this = this;
         AV.User.logIn(formDate.userName, formDate.passWord).then(function (loginedUser) {
-            console.log(_this)
             _this.setState({
                 hasLogined:true,
                 userNickname:formDate.userName,
                 modalVisibal:false
             })
         }, function (error) {
+            alert(error)
         });
     }
     logout(){
@@ -176,6 +195,7 @@ class MobileHeader extends React.Component{
         });
         AV.User.logOut();
     }
+
 }
 
 export default MobileHeader = Form.create()(MobileHeader);

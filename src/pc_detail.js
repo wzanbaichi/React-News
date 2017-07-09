@@ -38,7 +38,7 @@ export default class PCDetail extends React.Component {
                     <Col span={4}></Col>
                     <Col span={11} className='detail_container'>
                         <div className="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}></div>
-                        <Comments uniquekey={this.props.match.params.uniquekey}/>
+                        <Comments uniquekey={this.props.match.params.uniquekey} title={this.state.newsItem.title}/>
                     </Col>
                     <Col span={1}></Col>
                     <Col span={4}>

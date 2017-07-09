@@ -5,6 +5,8 @@ import MobileIndex from './mobile_index';
 import {HashRouter  as Router, Route} from 'react-router-dom';
 import PCDetail from './pc_detail';
 import MobileDetail from './mobile_detail';
+import PCUserCenter from './pc_usercenter';
+import MobileUsercenter from './mobile_usercenter';
 // import 'antd/dist/antd.css';
 
 class App extends Component {
@@ -16,6 +18,7 @@ class App extends Component {
                 <div>
                     <Route exact path='/' component={PCIndex}/>
                     <Route path='/details/:uniquekey' component={PCDetail}/>
+                    <Route path='/usercenter' component={PCUserCenter}/>
                 </div>
             </Router>
         </MediaQuery>
@@ -24,6 +27,7 @@ class App extends Component {
                 <div>
                     <Route exact path='/' component={MobileIndex}/>
                     <Route path='/details/:uniquekey' component={MobileDetail}/>
+                    <Route path='/usercenter' component={MobileUsercenter}/>
                 </div>
             </Router>
         </MediaQuery>

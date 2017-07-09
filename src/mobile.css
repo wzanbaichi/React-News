@@ -28,6 +28,17 @@ html {
     margin: .5rem 0 .2rem 0;
     text-align: center;
 }
+.mobile_header_logined_btn {
+    font-size: .24rem !important;
+    float: right;
+    margin-right: .3rem;
+    margin-top: .3rem;
+    width: 1.92rem;
+    text-align: center;
+}
+.mobile_header_logined_btn span {
+    font-size: .24rem !important;
+}
 #mobile_header i {
     font-size: .5rem;
     float: right;
@@ -74,4 +85,21 @@ html {
 }
 .mobile_article_wrap .ant-back-top-content {
     border-radius: 0;
+}
+.mobile_header_buttons button{
+    width: 1.6rem;
+}
+.Mobile_usercenter_collectList {
+    padding: .2rem 0;
+    border-bottom: 1px dashed rgba(160, 160, 160, 0.44);
+}
+.Mobile_usercenter_collectList p:nth-child(1) {
+    padding-bottom: .2rem;
+}
+.Mobile_usercenter_commentsList {
+    padding: .2rem 0;
+    border-bottom: 1px dashed rgba(160, 160, 160, 0.44);
+}
+.Mobile_usercenter_commentsList p:nth-child(1) {
+    padding-bottom: .2rem;
 }

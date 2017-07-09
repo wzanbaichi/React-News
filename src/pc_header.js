@@ -1,6 +1,5 @@
 import React from 'react';
 import Logo from './logo.png';
-import './pc.css';
 import {
     Row,
     Col,
@@ -13,6 +12,7 @@ import {
     Modal,
 } from 'antd';
 import AV from 'leancloud-storage';
+import {Link} from 'react-router-dom';
 
 
 const FormItem = Form.Item;
@@ -52,9 +52,9 @@ class PCHeader extends React.Component {
             <Menu.Item key='logout' className='register'>
                 <Button htmlType='button'>{this.state.userNickname}</Button>
                 &nbsp;&nbsp;
-                {/*<Link target='_blank'>*/}
+                <Link target='_blank' to='/usercenter' className='usercenter_link'>
                     <Button htmlType='button'>个人中心</Button>
-                {/*</Link>*/}
+                </Link>
                 &nbsp;&nbsp;
                 <Button type="dashed" htmlType='button' onClick={this.logout.bind(this)}>注销</Button>
             </Menu.Item>
@@ -221,6 +221,7 @@ class PCHeader extends React.Component {
                 modalVisibal:false
             })
         }, function (error) {
+            alert(error);
         });
     }
     logout(){
