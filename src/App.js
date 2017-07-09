@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import PCHeader from './pc_header';
 import MediaQuery from 'react-responsive';
 import PCIndex from './pc_index'
 import MobileIndex from './mobile_index';
+import {BrowserRouter  as Router, Route} from 'react-router-dom';
+import PCDetail from './pc_detail';
+import MobileDetail from './mobile_detail';
 // import 'antd/dist/antd.css';
 
 class App extends Component {
@@ -10,10 +12,20 @@ class App extends Component {
     return (
       <div>
         <MediaQuery query='(min-device-width: 1224px)'>
-          <PCIndex/>
+            <Router>
+                <div>
+                    <Route exact path='/' component={PCIndex}/>
+                    <Route path='/details/:uniquekey' component={PCDetail}/>
+                </div>
+            </Router>
         </MediaQuery>
         <MediaQuery query='(max-device-width: 1224px)'>
-          <MobileIndex/>
+            <Router>
+                <div>
+                    <Route exact path='/' component={MobileIndex}/>
+                    <Route path='/details/:uniquekey' component={MobileDetail}/>
+                </div>
+            </Router>
         </MediaQuery>
       </div>
     );

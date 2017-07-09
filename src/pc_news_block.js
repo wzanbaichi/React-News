@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card} from 'antd';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 
 
 export default class PCNewsBlock extends React.Component {
@@ -15,7 +16,7 @@ export default class PCNewsBlock extends React.Component {
         var myFetchOptions = {
             method: 'GET'
         };
-        fetch("newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(
+        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(
             response => (response.json())
         ).then(json => this.setState({news: json}))
     };
@@ -26,14 +27,16 @@ export default class PCNewsBlock extends React.Component {
         const newList = news.length ?
             news.map((newsItem, index) =>
                 <li key={index}>
-                    {newsItem.title}
+                    <Link to={`/details/${newsItem.uniquekey}`} target='_blank'>
+                        {newsItem.title}
+                    </Link>
                 </li>
             )
             :
             "没有加载到新闻"
         return (
             <div className='top_new_list'>
-                <Card className='top_new_list_container'>
+                <Card  className='top_new_list_container'>
                     <ul>
                         {newList}
                     </ul>

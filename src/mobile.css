@@ -25,6 +25,7 @@ html {
     color: #2db7f5;
 }
 #mobile_footer {
+    margin: .5rem 0 .2rem 0;
     text-align: center;
 }
 #mobile_header i {
@@ -60,4 +61,17 @@ html {
 }
 .carousel img {
     width: 100%;
+}
+.mobile_detail_container {
+    margin-top: .5rem;
+}
+.mobile_article_wrap .mobile_detail_container figure.section {
+    padding: .5rem 0;
+}
+.mobile_article_wrap .ant-back-top {
+    right: .3rem;
+    bottom: .6rem;
+}
+.mobile_article_wrap .ant-back-top-content {
+    border-radius: 0;
 }

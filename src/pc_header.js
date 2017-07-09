@@ -1,26 +1,21 @@
 import React from 'react';
 import Logo from './logo.png';
 import './pc.css';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {
     Row,
     Col,
     Menu,
     Icon,
     Tabs,
-    message,
     Form,
     Input,
     Button,
-    Checkbox,
     Modal,
 } from 'antd';
 import AV from 'leancloud-storage';
 
 
 const FormItem = Form.Item;
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 const TabPane = Tabs.TabPane;
 
 
@@ -36,8 +31,22 @@ class PCHeader extends React.Component {
             userId: 0
         };
     }
+    componentWillMount(){
+        let currentUser = AV.User.current();
+        if (currentUser) {
+            this.setState({
+                hasLogined:true,
+                userNickname:currentUser.attributes.username
+            })
+        }
+        else {
+            //currentUser 为空时，可打开用户注册界面…
+
+        }
+    }
 
     render() {
+
         let {getFieldDecorator} = this.props.form;
         let userShow = this.state.hasLogined ?
             <Menu.Item key='logout' className='register'>
@@ -58,13 +67,13 @@ class PCHeader extends React.Component {
             <div className='pc_header'>
                 <Row>
                     <Col span={4}></Col>
-                    <Col span={4}>
+                    <Col span={3}>
                         <a href="/" className='logo'>
                             <img src={Logo} alt="logo"/>
                             <span>ReactNews</span>
                         </a>
                     </Col>
-                    <Col span={12}>
+                    <Col span={13}>
                         <Menu mode="horizontal" selectedKeys={[this.state.current]}
                               onClick={this.handelClick.bind(this)}>
                             <Menu.Item key='top'>
@@ -206,7 +215,6 @@ class PCHeader extends React.Component {
         let formDate = this.props.form.getFieldsValue();
         let _this = this;
         AV.User.logIn(formDate.userName, formDate.passWord).then(function (loginedUser) {
-            console.log(_this)
             _this.setState({
                 hasLogined:true,
                 userNickname:formDate.userName,
@@ -218,7 +226,8 @@ class PCHeader extends React.Component {
     logout(){
         this.setState({
             hasLogined:false,
-        })
+        });
+        AV.User.logOut();
     }
 }
 export default PCHeader = Form.create()(PCHeader);

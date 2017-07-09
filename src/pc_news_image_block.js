@@ -1,7 +1,6 @@
 import React from 'react';
 import {Card} from 'antd';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
 
 export default class PCImagesBlock extends React.Component {
     constructor() {
@@ -12,9 +11,7 @@ export default class PCImagesBlock extends React.Component {
     };
 
     componentWillMount() {
-        var myFetchOptions = {
-            method: 'GET'
-        };
+
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, {method: 'GET'}).then(
             response => (response.json())
         ).then(json => this.setState({news: json}))
@@ -37,13 +34,15 @@ export default class PCImagesBlock extends React.Component {
         const newList = news.length ?
             news.map((newsItem, index) =>
                 <div key={index} className='image_block'>
+                    <Link to={`/details/${newsItem.uniquekey}`} target='_blank'>
                     <div className='image_wrap'>
-                        <img src={newsItem.thumbnail_pic_s} style={imageStyle}/>
+                        <img src={newsItem.thumbnail_pic_s} style={imageStyle} alt={newsItem.title}/>
                     </div>
                     <div className='image_detail'>
                         <h3 style={h3Style}>{newsItem.title}</h3>
                         <p>{newsItem.author_name}</p>
                     </div>
+                    </Link>
                 </div>
             )
             :

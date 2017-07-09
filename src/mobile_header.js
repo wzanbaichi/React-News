@@ -1,22 +1,15 @@
 import React from 'react';
 import Logo from './logo.png';
-import {BrowserRouter as Router ,Route ,Link} from 'react-router-dom';
-import { Row,
-    Col ,
-    Menu ,
+import {
     Icon ,
     Tabs ,
-    message ,
     Form ,
     Input ,
     Button ,
-    Checkbox ,
     Modal ,} from 'antd';
 import AV from 'leancloud-storage';
 
 const FormItem = Form.Item;
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 const TabPane = Tabs.TabPane;
 
 
@@ -43,9 +36,11 @@ class MobileHeader extends React.Component{
         return(
             <div id='mobile_header'>
                 <header>
-                    <img src={Logo} alt="logo"/>
-                    <span>ReactNews</span>
-                    {userShow}
+                    <a href="/">
+                        <img src={Logo} alt="logo"/>
+                        <span>ReactNews</span>
+                        {userShow}
+                    </a>
                 </header>
                 <Modal  wrapClassName='virtical-center-modal' visible={this.state.modalVisibal}
                         footer={null}

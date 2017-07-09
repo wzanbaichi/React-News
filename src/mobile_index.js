@@ -34,7 +34,7 @@ export default class MobileIndex extends React.Component {
                 </div>
                 <Tabs >
                     <TabPane tab='头条' key='1'>
-                        < MobileList type='top' count='20' / >
+                        < MobileList type='top' count='20'/>
                     </TabPane>
                     <TabPane tab='社会' key='2'>
                         <MobileList type='shehui' count='20'/>

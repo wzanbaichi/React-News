@@ -1,5 +1,4 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {
     Row,
     Col,
@@ -41,12 +40,12 @@ export default class PCNewsContainer extends React.Component {
                                         alt=""/></div>
                                 </Carousel>
                             </div>
-                            <PCImageBlock width='400px' imageHeight='90px' imageWidth='110px' count='6' type='top'
+                            <PCImageBlock width='400px' imageHeight='90px' imageWidth='110px' count='6' type='yule'
                                           cartTitle='娱乐新闻'/>
                         </div>
                         <Tabs className='tabs_news'>
-                            <TabPane tab='新闻' key='1'>
-                                <PCNewsBlock type='top' count='20'/>
+                            <TabPane tab='社会' key='1'>
+                                <PCNewsBlock type='shehui' count='20'/>
                             </TabPane>
                         </Tabs>
                         <PCImageBlock width='100%' imageWidth='236px' count='5' type='guoji' cartTitle='国际新闻'/>
