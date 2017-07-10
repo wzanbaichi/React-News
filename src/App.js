@@ -16,7 +16,7 @@ class App extends Component {
         <MediaQuery query='(min-device-width: 1224px)'>
             <Router>
                 <div>
-                    <Route exact path='/' component={PCIndex}/>
+                    <Route exat path='/' component={PCIndex}/>
                     <Route path='/details/:uniquekey' component={PCDetail}/>
                     <Route path='/usercenter' component={PCUserCenter}/>
                 </div>
